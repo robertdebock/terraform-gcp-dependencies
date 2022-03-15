@@ -1,0 +1,18 @@
+---
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: terraform init
+        uses: robertdebock/terraform-action@1.1.2
+        with:
+          action: init
+      - name: terraform validate
+        uses: robertdebock/terraform-action@1.1.2
+        with:
+          action: validate
